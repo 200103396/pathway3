@@ -5,6 +5,10 @@ class Aquarium(length: Int = 100, width: Int = 20, height: Int = 40) {
     var length: Int = length
     var width: Int = width
     var height: Int = height
+    constructor(numberOfFish: Int) : this() {
+        // 2,000 cm^3 per fish + extra room so water doesn't spill
+        val tank = numberOfFish * 2000 * 1.1
+    }
     init {
         println("aquarium initializing")
     }
