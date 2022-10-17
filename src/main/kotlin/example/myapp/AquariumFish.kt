@@ -6,11 +6,17 @@ interface FishAction  {
 interface FishColor {
     val color: String
 }
-class Plecostomus: FishAction, FishColor by GoldColor{
+
+class PrintingFishAction(val food: String) :
+    FishAction {
     override fun eat() {
-        println("eat algae")
+        println(food)
     }
 }
+
+class Plecostomus (fishColor: FishColor = GoldColor):
+    FishAction by PrintingFishAction("eat algae"),
+    FishColor by fishColor
 
 class Shark: FishAction, FishColor {
     override val color = "grey"
